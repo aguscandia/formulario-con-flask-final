@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Modifica{% endblock %}
+
+{% block mi_precioso_bloque_de_formato %}
+<form action="/modifica/{{id}}" method="post">
+    {{ form.hidden_tag() }}
+    <div class="field">
+        {{ form.fecha.label }}
+        {{ form.fecha }}
+        {% for error in form.fecha.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+    <div class="field">
+        {{ form.concepto.label }}
+        {{ form.concepto(class="grande") }}
+        {% for error in form.concepto.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+    <div class="field">
+        {{ form.cantidad.label }}
+        {{ form.cantidad }}
+        {% for error in form.cantidad.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+    <div class="field">
+        {{ form.submit }}
+    </div>  
+</form>
+
+
+{%  endblock %}
